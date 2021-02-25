@@ -1,53 +1,74 @@
 package com.epam.brest;
 
+import com.epam.brest.files.CSVFileReader;
+import com.epam.brest.files.FileReader;
+import com.epam.brest.selector.PriceSelector;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
+        FileReader distancePriceFileReader = new CSVFileReader();
+        Map<Integer, BigDecimal> distancePriceMap = distancePriceFileReader.readData("price_distance.csv");
+        Map<Integer, BigDecimal> weightPriceMap = distancePriceFileReader.readData("price_weight.csv");
+
+        PriceSelector priceSelector = new PriceSelector();
+
+        BigDecimal[] enteredValues = new BigDecimal[2];
         Scanner scanner = new Scanner(System.in);
-        double[] enteredValues = new double[]{0.0, 0.0, 0.0, 0.0};
-        String[] requests = new String[] {
-                "Please, enter distance: ",
-                "Please, enter price per km: ",
-                "Please, enter weight: ",
-                "Please, enter price per kg: "
-        };
+        String inputValue;
+
         int i = 0;
 
         do {
-            System.out.println("If you want to exit, enter \"0\".");
-            System.out.print(requests[i]);
-
-            while(!scanner.hasNextDouble()) {
-                    System.out.print("The value must be a number! "+requests[i]);
-                    scanner.next();
+            if(i == 0) {
+                System.out.print("Please, enter distance: ");
+            } else if(i == 1) {
+                System.out.print("Please, enter weight: ");
             }
-            double inputValue = scanner.nextDouble();
-            if (inputValue > 0) {
-                enteredValues[i] = inputValue;
-                i++;
-            } else if (inputValue < 0){
-                System.out.println("The value must be greater than zero!");
-            } else {
+
+            inputValue = scanner.next();
+            if(inputValue.equalsIgnoreCase("Q")) {
                 break;
+            } else if(isCorrectDoubleValue(inputValue)) {
+                enteredValues[i] = new BigDecimal(inputValue);
+                i++;
+            } else {
+                System.out.println("Incorrect value: " + inputValue);
             }
-        } while(i < 4);
 
-        getResult(enteredValues);
+            if(i == 2) {
+                BigDecimal distancePrice = priceSelector.selectPriceValue(distancePriceMap, enteredValues[0].toBigInteger());
+                System.out.println("Distance price: " + distancePrice);
+
+                BigDecimal weightPrice = priceSelector.selectPriceValue(distancePriceMap, enteredValues[1].toBigInteger());
+                System.out.println("Weight price: " + weightPrice);
+
+                BigDecimal resultPrice = enteredValues[0].multiply(distancePrice).add(enteredValues[1].multiply(weightPrice));
+                System.out.println("Result price: " + resultPrice);
+
+                i = 0;
+            }
+
+
+        } while(i < 2);
+
     }
 
-    private static void getResult(double[] enteredValues) {
-        boolean checkValues = true;
-        for(double enteredValue : enteredValues) {
-            if(enteredValue == 0.0)
-                checkValues = false;
+    private static boolean isCorrectDoubleValue(String value) {
+        boolean checkResult;
+        try {
+            double enteredValue = Double.parseDouble(value);
+            checkResult = enteredValue >= 0;
+        } catch(NumberFormatException ex) {
+            checkResult = false;
         }
-        if(checkValues) {
-            System.out.println("Final price is " + (enteredValues[0]*enteredValues[1] + enteredValues[2]*enteredValues[3]) + "$");
-        } else {
-            System.out.println("You didn't enter all the required values. The final price can't be calculated.");
-        }
+        return checkResult;
     }
 }
