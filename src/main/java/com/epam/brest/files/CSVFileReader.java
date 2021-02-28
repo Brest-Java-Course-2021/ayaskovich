@@ -5,12 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public class CSVFileReader implements FileReader{
 
