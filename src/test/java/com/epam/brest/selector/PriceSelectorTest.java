@@ -20,25 +20,25 @@ public class PriceSelectorTest {
 
     @org.junit.Test
     public void selectPriceMediumValue() {
-        BigDecimal result = priceSelector.selectPriceValue(values, new BigInteger("2"));
+        BigDecimal result = priceSelector.selectPriceValue(values, new BigDecimal(2));
         Assert.assertTrue("Result value is incorrect", result.equals(new BigDecimal(200)));
     }
 
     @org.junit.Test
     public void selectPriceZeroValue() {
-        BigDecimal result = priceSelector.selectPriceValue(values, new BigInteger("0"));
+        BigDecimal result = priceSelector.selectPriceValue(values, new BigDecimal(0));
         Assert.assertTrue("Result value is incorrect", result.equals(new BigDecimal(100)));
     }
 
     @org.junit.Test
     public void selectPriceMaxValue() {
-        BigDecimal result = priceSelector.selectPriceValue(values, new BigInteger("4"));
+        BigDecimal result = priceSelector.selectPriceValue(values, new BigDecimal(4));
         Assert.assertTrue("Result value is incorrect", result.equals(new BigDecimal(300)));
     }
 
     @org.junit.Test
     public void selectPriceIncorrectValue() {
-        BigDecimal result = priceSelector.selectPriceValue(values, new BigInteger("-1"));
+        BigDecimal result = priceSelector.selectPriceValue(values, new BigDecimal(-1));
         Assert.assertTrue("Result value is incorrect", result.equals(new BigDecimal(100)));
     }
 }

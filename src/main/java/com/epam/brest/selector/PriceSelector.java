@@ -8,7 +8,7 @@ import java.util.TreeSet;
 
 public class PriceSelector {
 
-    public BigDecimal selectPriceValue(Map<Integer, BigDecimal> valuesMap, BigInteger targetValue) {
+    public BigDecimal selectPriceValue(Map<Integer, BigDecimal> valuesMap, BigDecimal targetValue) {
         SortedSet<Integer> sortedKeys = new TreeSet<>(valuesMap.keySet());
         Integer resultKey = sortedKeys.first();
         for(Integer key : sortedKeys) {
