@@ -42,7 +42,12 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public Integer delete() {
-        return departmentDao.delete();
+    public Integer delete(Integer departmentId) {
+        return departmentDao.delete(departmentId);
+    }
+
+    @Override
+    public Integer count() {
+        return departmentDao.count();
     }
 }

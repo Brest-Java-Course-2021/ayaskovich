@@ -3,6 +3,7 @@ package com.epam.brest.dao.jdbc;
 import com.epam.brest.dao.DepartmentDao;
 import com.epam.brest.model.Department;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -10,29 +11,30 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+@Component
 public class DepartmentDaoJdbc implements DepartmentDao {
 
-    @Value("${department.select}")
-    private String findAllSql;
-
-    @Value("${department.findById}")
-    private String findByIdSql;
-
-    @Value("${department.create}")
-    private String createSql;
-
-    @Value("${department.update}")
-    private String updateSql;
-
-    @Value("${department.check}")
-    private String checkSql;
-
-    @Value("${department.delete}")
-    private String deleteSql;
+    private String findAllSql =
+            "SELECT D.DEPARTMENT_ID, D.DEPARTMENT_NAME FROM DEPARTMENT AS D ORDER BY D.DEPARTMENT_NAME";
+    private String findByIdSql =
+            "SELECT D.DEPARTMENT_ID, D.DEPARTMENT_NAME FROM DEPARTMENT AS D WHERE D.DEPARTMENT_ID = :DEPARTMENT_ID";
+    private String createSql =
+            "INSERT INTO DEPARTMENT (DEPARTMENT_NAME) VALUES (:DEPARTMENT_NAME)";
+    private String updateSql =
+            "UPDATE DEPARTMENT SET DEPARTMENT_NAME = :DEPARTMENT_NAME WHERE DEPARTMENT_ID = :DEPARTMENT_ID";
+    private String checkSql =
+            "SELECT COUNT(DEPARTMENT_ID) FROM DEPARTMENT WHERE lower(DEPARTMENT_NAME) = lower(:DEPARTMENT_NAME)";
+    private String deleteSql =
+            "DELETE FROM DEPARTMENT WHERE DEPARTMENT_ID = :DEPARTMENT_ID";
+    private String countSql =
+            "SELECT COUNT(*) FROM DEPARTMENT";
 
     NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     RowMapper rowMapper = BeanPropertyRowMapper.newInstance(Department.class);
@@ -49,7 +51,9 @@ public class DepartmentDaoJdbc implements DepartmentDao {
     @Override
     public Optional<Department> findById(Integer departmentId) {
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource("DEPARTMENT_ID", departmentId);
-        return Optional.ofNullable((Department) namedParameterJdbcTemplate.query(findByIdSql, sqlParameterSource, rowMapper).get(0));
+        // Note: don't use queryForObject to reduce exception handling
+        List<Department> results = namedParameterJdbcTemplate.query(findByIdSql, sqlParameterSource, rowMapper);
+        return Optional.ofNullable(DataAccessUtils.uniqueResult(results));
     }
 
     @Override
@@ -77,8 +81,14 @@ public class DepartmentDaoJdbc implements DepartmentDao {
     }
 
     @Override
-    public Integer delete() {
-        return null;
+    public Integer delete(Integer departmentId) {
+        return namedParameterJdbcTemplate.update(deleteSql, new MapSqlParameterSource()
+                .addValue("DEPARTMENT_ID", departmentId));
+    }
+
+    @Override
+    public Integer count() {
+        return namedParameterJdbcTemplate.queryForObject(countSql, new HashMap<>(), Integer.class);
     }
 
 }

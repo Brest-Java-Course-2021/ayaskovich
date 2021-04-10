@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +36,8 @@
 
 		<nav id="main-header" class="navbar navbar-light bg-light text-dark py-1 mb-3">
 			<div class="container-fluid">
-				<span class="navbar-brand text-uppercase">Department Name</span>
+				<span class="navbar-brand text-uppercase"
+				th:text="${isNew} ? 'New department' : 'Edit department'">Department Name</span>
 			</div>
 		</nav>
 
@@ -45,10 +46,20 @@
 		<section>
 
 			<div class="col-xxl-4 col-xl-5 col-lg-6 col-md-8 col-sm-12">
-				<form class="ms-3">
+				<form class="ms-3" id="departmentForm"
+						th:object="${department}"
+						action="departments.html"
+						th:action="@{${#httpServletRequest.servletPath}}"
+						th:method="@{post}">
+					<input 	id="field_departmentId"
+							type="hidden"
+							th:field="*{departmentId}" />
 					<div class="mb-3 me-3">
-						<label for="exampleFormControlInput1" class="form-label">Department name:</label>
-						<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+						<label for="field_departmentName" class="form-label">Department name:</label>
+						<input class="form-control"
+							   id="field_departmentName"
+							   type="text" value="CEO"
+							   th:field="*{departmentName}" />
 					</div>
 					<div class="mb-3 me-3">
 						<label for="exampleFormControlTextarea1" class="form-label">Description:</label>
@@ -56,7 +67,7 @@
 					</div>
 
 					<button type="submit" class="btn btn-secondary me-2">Cancel</button>
-					<button type="submit" class="btn btn-primary">Save</button>
+					<button type="submit" class="btn btn-primary" >Save</button>
 
 
 				</form>

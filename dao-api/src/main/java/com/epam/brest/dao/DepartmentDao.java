@@ -10,6 +10,7 @@ public interface DepartmentDao {
     Optional<Department> findById(Integer departmentId);
     Integer create(Department department);
     Integer update(Department department);
-    Integer delete();
+    Integer delete(Integer departmentId);
+    Integer count();
 
 }
