@@ -1,13 +1,25 @@
 package com.epam.brest.model;
 
+import java.util.Objects;
+
 public class Employee {
 
     private Integer employeeId;
-    private String employeeFirstName;
-    private String employeeLastName;
-    private String employeeEmail;
-    private Double employeeSalary;
-    private Integer employeeDepartment;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private Double salary;
+    private Integer departmentId;
+
+    public Employee() {}
+
+    public Employee(String firstName, String lastName, String email, Double salary, Integer departmentId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.salary = salary;
+        this.departmentId = departmentId;
+    }
 
     public Integer getEmployeeId() {
         return employeeId;
@@ -17,55 +29,68 @@ public class Employee {
         this.employeeId = employeeId;
     }
 
-    public String getEmployeeFirstName() {
-        return employeeFirstName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setEmployeeFirstName(String employeeFirstName) {
-        this.employeeFirstName = employeeFirstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getEmployeeLastName() {
-        return employeeLastName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setEmployeeLastName(String employeeLastName) {
-        this.employeeLastName = employeeLastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getEmployeeEmail() {
-        return employeeEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmployeeEmail(String employeeEmail) {
-        this.employeeEmail = employeeEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Double getEmployeeSalary() {
-        return employeeSalary;
+    public Double getSalary() {
+        return salary;
     }
 
-    public void setEmployeeSalary(Double employeeSalary) {
-        this.employeeSalary = employeeSalary;
+    public void setSalary(Double salary) {
+        this.salary = salary;
     }
 
-    public Integer getEmployeeDepartment() {
-        return employeeDepartment;
+    public Integer getDepartmentId() {
+        return departmentId;
     }
 
-    public void setEmployeeDepartment(Integer employeeDepartment) {
-        this.employeeDepartment = employeeDepartment;
+    public void setDepartmentId(Integer departmentId) {
+        this.departmentId = departmentId;
     }
 
     @Override
     public String toString() {
         return "Employee{" +
                 "employeeId=" + employeeId +
-                ", employeeFirstName='" + employeeFirstName + '\'' +
-                ", employeeLastName='" + employeeLastName + '\'' +
-                ", employeeEmail='" + employeeEmail + '\'' +
-                ", employeeSalary=" + employeeSalary +
-                ", employeeDepartment=" + employeeDepartment +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", salary=" + salary +
+                ", departmentId=" + departmentId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(employeeId, employee.employeeId) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(email, employee.email) && Objects.equals(salary, employee.salary) && Objects.equals(departmentId, employee.departmentId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employeeId, firstName, lastName, email, salary, departmentId);
     }
 }

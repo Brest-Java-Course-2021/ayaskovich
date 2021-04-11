@@ -66,7 +66,7 @@
 
 								<tr th:each="department : ${departments}">
 									<td th:text="${department.getDepartmentName()}">CEO</td>
-									<td>10000</td>
+									<td th:text="${department.getAvgSalary()}">10000</td>
 									<td class="text-end">
 										<a class="btn-sm btn-outline-secondary" href="department.html"
 										   			th:href="@{/department/{id}(id=${department.getDepartmentId()})}" title="Edit department">
@@ -125,7 +125,7 @@
 		<script>
 			// при открытии модального окна
 			$('#deleteModal').on('show.bs.modal', function (event) {
-			// получить кнопку, которая его открыло
+			// получить кнопку, которая его открылa
 			var button = $(event.relatedTarget)
 			// извлечь информацию из атрибутов data-name и data-id
 			var name = button.data('name')
