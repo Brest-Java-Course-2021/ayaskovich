@@ -1,4 +1,4 @@
-package com.epam.brest.web_app;
+package com.epam.brest.rest_app;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

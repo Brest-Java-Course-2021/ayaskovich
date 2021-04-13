@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-failsafe-plugin/xsd/failsafe-test-report-3.0.xsd" version="3.0" name="com.epam.brest.model.DepartmentIT" time="0.12" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-failsafe-plugin/xsd/failsafe-test-report-3.0.xsd" version="3.0" name="com.epam.brest.model.DepartmentIT" time="0.15" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/home/aleh/.jdks/corretto-15.0.2/lib"/>
-    <property name="sun.java.command" value="/home/aleh/ayaskovich/model/target/surefire/surefirebooter1773223681246681968.jar /home/aleh/ayaskovich/model/target/surefire 2021-04-11T16-27-45_428-jvmRun1 surefire32282256838398799tmp surefire_010691990456590490919tmp"/>
+    <property name="sun.java.command" value="/home/aleh/ayaskovich/model/target/surefire/surefirebooter4949279384086800375.jar /home/aleh/ayaskovich/model/target/surefire 2021-04-13T02-02-09_670-jvmRun1 surefire17775339229191495547tmp surefire_014669282575746872378tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/aleh/ayaskovich/model/target/test-classes:/home/aleh/ayaskovich/model/target/classes:/home/aleh/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.0-M1/junit-jupiter-api-5.8.0-M1.jar:/home/aleh/.m2/repository/org/apiguardian/apiguardian-api/1.1.1/apiguardian-api-1.1.1.jar:/home/aleh/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/aleh/.m2/repository/org/junit/platform/junit-platform-commons/1.8.0-M1/junit-platform-commons-1.8.0-M1.jar:/home/aleh/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.0-M1/junit-jupiter-engine-5.8.0-M1.jar:/home/aleh/.m2/repository/org/junit/platform/junit-platform-engine/1.8.0-M1/junit-platform-engine-1.8.0-M1.jar:/home/aleh/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.4.20/kotlin-stdlib-jdk8-1.4.20.jar:/home/aleh/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.20/kotlin-stdlib-1.4.20.jar:/home/aleh/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar:/home/aleh/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/home/aleh/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.4.20/kotlin-stdlib-jdk7-1.4.20.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -27,7 +27,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/home/aleh/ayaskovich/model/target/surefire/surefirebooter1773223681246681968.jar"/>
+    <property name="surefire.real.class.path" value="/home/aleh/ayaskovich/model/target/surefire/surefirebooter4949279384086800375.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="15.0.2+7"/>
     <property name="user.name" value="aleh"/>
@@ -52,6 +52,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="getDepartmentNameSetterTest" classname="com.epam.brest.model.DepartmentIT" time="0.081"/>
-  <testcase name="getDepartmentNameConstructorTest" classname="com.epam.brest.model.DepartmentIT" time="0.002"/>
+  <testcase name="getDepartmentNameSetterTest" classname="com.epam.brest.model.DepartmentIT" time="0.099"/>
+  <testcase name="getDepartmentNameConstructorTest" classname="com.epam.brest.model.DepartmentIT" time="0.004"/>
 </testsuite>

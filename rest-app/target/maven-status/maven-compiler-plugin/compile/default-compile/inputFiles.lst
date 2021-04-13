@@ -1,0 +1,5 @@
+/home/aleh/ayaskovich/rest-app/src/main/java/com/epam/brest/rest_app/exception/DepartmentNotFoundException.java
+/home/aleh/ayaskovich/rest-app/src/main/java/com/epam/brest/rest_app/exception/CustomExceptionHandler.java
+/home/aleh/ayaskovich/rest-app/src/main/java/com/epam/brest/rest_app/exception/ErrorResponse.java
+/home/aleh/ayaskovich/rest-app/src/main/java/com/epam/brest/rest_app/DepartmentController.java
+/home/aleh/ayaskovich/rest-app/src/main/java/com/epam/brest/rest_app/VersionController.java

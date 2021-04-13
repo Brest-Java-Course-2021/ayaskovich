@@ -1,6 +1,5 @@
-package com.epam.brest.web_app;
+package com.epam.brest.rest_app;
 
-import com.epam.brest.model.Department;
 import com.epam.brest.model.Employee;
 import com.epam.brest.service.DepartmentService;
 import com.epam.brest.service.EmployeeService;
