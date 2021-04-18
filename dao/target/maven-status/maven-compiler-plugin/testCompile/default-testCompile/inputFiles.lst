@@ -1,2 +1,2 @@
-/home/aleh/ayaskovich/dao/src/test/java/com/epam/brest/dao/jdbc/DepartmentDaoJdbcIT.java
-/home/aleh/ayaskovich/dao/src/test/java/com/epam/brest/dao/jdbc/EmployeeDaoJdbcIT.java
+/home/aleh/IdeaProjects/ayaskovich/dao/src/test/java/com/epam/brest/dao/jdbc/EmployeeDaoJdbcIT.java
+/home/aleh/IdeaProjects/ayaskovich/dao/src/test/java/com/epam/brest/dao/jdbc/DepartmentDaoJdbcIT.java
