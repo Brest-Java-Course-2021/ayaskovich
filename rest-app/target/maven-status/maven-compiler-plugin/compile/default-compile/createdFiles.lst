@@ -1,5 +1,6 @@
 com/epam/brest/rest_app/VersionController.class
 com/epam/brest/rest_app/exception/DepartmentNotFoundException.class
+com/epam/brest/rest_app/ApplicationRest.class
 com/epam/brest/rest_app/exception/ErrorResponse.class
 com/epam/brest/rest_app/exception/CustomExceptionHandler.class
 com/epam/brest/rest_app/DepartmentController.class
