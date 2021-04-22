@@ -1,4 +1,5 @@
-com/epam/brest/web_app/DepartmentController.class
-com/epam/brest/web_app/Example.class
-com/epam/brest/web_app/HomeController.class
 com/epam/brest/web_app/EmployeeController.class
+com/epam/brest/web_app/HomeController.class
+com/epam/brest/web_app/Application.class
+com/epam/brest/web_app/config/ApplicationConfig.class
+com/epam/brest/web_app/DepartmentController.class

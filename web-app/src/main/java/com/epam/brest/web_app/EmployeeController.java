@@ -3,12 +3,15 @@ package com.epam.brest.web_app;
 import com.epam.brest.model.Employee;
 import com.epam.brest.service.DepartmentService;
 import com.epam.brest.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -17,13 +20,14 @@ public class EmployeeController {
     private final EmployeeService employeeService;
     private final DepartmentService departmentService;
 
+    @Autowired
     public EmployeeController(EmployeeService employeeService, DepartmentService departmentService) {
         this.employeeService = employeeService;
         this.departmentService = departmentService;
     }
 
     @GetMapping(value = "/employees")
-    public String showAllDepartments(Model model) {
+    public String showAllEmployees(Model model) {
         model.addAttribute("employees", employeeService.findAll());
         return "employees";
     }
@@ -37,7 +41,7 @@ public class EmployeeController {
     }
 
     @PostMapping(value = "/employee")
-    public String addDepartment(Employee employee) {
+    public String addEmployee(Employee employee) {
         employeeService.create(employee);
         return "redirect:/employees";
     }
@@ -57,7 +61,7 @@ public class EmployeeController {
     }
 
     @PostMapping(value = "/employee/{id}")
-    public String updateDepartment(Employee employee) {
+    public String updateDEmployee(Employee employee) {
         employeeService.update(employee);
         return "redirect:/employees";
     }

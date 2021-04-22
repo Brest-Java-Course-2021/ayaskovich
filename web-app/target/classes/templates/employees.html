@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Employees</title>
     <link href="../../resources/static/css/bootstrap.min.css" rel="stylesheet"
-          th:href="@{/resources/static/css/bootstrap.min.css}">
+          th:href="@{/css/bootstrap.min.css}">
     <link href="../../resources/static/css/style.css" rel="stylesheet"
-          th:href="@{/resources/static/css/style.css}">
+          th:href="@{/css/style.css}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light p-1">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="../../resources/static/img/iconfinder_Asset_45_7295022.png"
-                                                  th:src="@{/resources/static/img/iconfinder_Asset_45_7295022.png}" width="35px"></a>
+                                                  th:src="@{/img/iconfinder_Asset_45_7295022.png}" width="35px"></a>
             <button class="navbar-toggler btn-sm" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -68,18 +68,18 @@
                         <tbody>
 
                         <tr th:each="employee : ${employees}">
-                            <td th:text="${employee.getFirstName()}+' '+${employee.getLastName()}">Ivan Ivanov</td>
-                            <td th:text="${employee.getEmail()}">ivanov@mail.com</td>
-                            <td th:text="${employee.getSalary()}">1000</td>
-                            <td th:text="${employee.getDepartmentId()}">IT</td>
+                            <td th:text="${employee.firstName}+' '+${employee.lastName}">Ivan Ivanov</td>
+                            <td th:text="${employee.email}">ivanov@mail.com</td>
+                            <td th:text="${employee.salary}">1000</td>
+                            <td th:text="${employee.departmentId}">IT</td>
                             <td>2020-11-10</td>
                             <td class="text-end">
                                 <a class="btn-sm btn-outline-secondary" href="department.html"
-                                   th:href="@{/employee/{id}(id=${employee.getEmployeeId()})}" title="Edit employee">
+                                   th:href="@{/employee/{id}(id=${employee.employeeId})}" title="Edit employee">
                                     <i class="bi-pen"></i>&nbsp;<span class="d-none d-md-inline">Edit</span>
                                 </a>
                                 <span data-toggle="modal" data-target="#deleteModal"
-                                      th:attr="data-id=${employee.getEmployeeId()}, data-name=${employee.getFirstName()}+' '+${employee.getLastName()}">
+                                      th:attr="data-id=${employee.employeeId}, data-name=${employee.firstName}+' '+${employee.lastName}">
                                     <a class="btn-sm btn-outline-secondary"  href="#" >
                                         <i class="bi-x"></i><span class="d-none d-md-inline">Delete</span>
                                     </a>
@@ -122,11 +122,11 @@
 </footer>
 
 <script src="../../resources/static/js/jquery-3.2.1.js"
-        th:href="@{/resources/static/js/jquery-3.2.1.js}"></script>
+        th:src="@{/js/jquery-3.2.1.js}"></script>
 <script src="../../resources/static/js/popper.min.js"
-        th:href="@{/resources/static/js/popper.min.js}"></script>
+        th:src="@{/js/popper.min.js}"></script>
 <script src="../../resources/static/js/bootstrap.min.js"
-        th:href="@{/resources/static/js/bootstrap.min.js}"></script>
+        th:src="@{/js/bootstrap.min.js}"></script>
 
 <script>
 			// при открытии модального окна
