@@ -1,5 +1,6 @@
 package com.epam.brest.web_app;
 
+import com.epam.brest.model.Dates;
 import com.epam.brest.model.Employee;
 import com.epam.brest.service.DepartmentService;
 import com.epam.brest.service.EmployeeService;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -28,7 +30,18 @@ public class EmployeeController {
 
     @GetMapping(value = "/employees")
     public String showAllEmployees(Model model) {
+        Dates dates = new Dates();
+        model.addAttribute(dates);
         model.addAttribute("employees", employeeService.findAll());
+        return "employees";
+    }
+
+    @PostMapping(value = "/employees")
+    public String showEmployeesByDate(Dates dates, Model model) {
+        Date firstDate = Date.valueOf(dates.getFirstDate());
+        Date secondDate = Date.valueOf(dates.getSecondDate());
+        List<Employee> employees = employeeService.findByDate(firstDate, secondDate);
+        model.addAttribute("employees", employees);
         return "employees";
     }
 
@@ -61,7 +74,7 @@ public class EmployeeController {
     }
 
     @PostMapping(value = "/employee/{id}")
-    public String updateDEmployee(Employee employee) {
+    public String updateEmployee(Employee employee) {
         employeeService.update(employee);
         return "redirect:/employees";
     }
