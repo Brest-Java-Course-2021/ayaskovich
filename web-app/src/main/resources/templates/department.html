@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Department</title>
+		<link href="../static/css/bootstrap.min.css" rel="stylesheet"
+			  th:href="@{/css/bootstrap.min.css}">
+		<link href="../static/css/style.css" rel="stylesheet"
+			  th:href="@{/css/style.css}">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	</head>
+	<body>
+
+	<header>
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light p-1">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"><img src="../static/img/iconfinder_Asset_45_7295022.png"
+													  th:src="@{/img/iconfinder_Asset_45_7295022.png}" width="35px"></a>
+				<button class="navbar-toggler btn-sm" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="departments.html" th:href="@{/departments}">Departments</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="employees.html" th:href="@{/employees}">Employees</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<nav id="main-header" class="navbar navbar-light bg-light text-dark py-1 mb-3">
+			<div class="container-fluid">
+				<span class="navbar-brand text-uppercase"
+				th:text="${isNew} ? 'New department' : 'Edit department'">Department Name</span>
+			</div>
+		</nav>
+
+	</header>
+
+		<section>
+
+			<div class="col-xxl-4 col-xl-5 col-lg-6 col-md-8 col-sm-12">
+				<form class="ms-3" id="departmentForm"
+						th:object="${department}"
+						action="departments.html"
+						th:action="@{${#httpServletRequest.servletPath}}"
+						th:method="@{post}">
+					<input 	id="field_departmentId"
+							type="hidden"
+							th:field="*{departmentId}" />
+					<div class="mb-3 me-3">
+						<label for="field_departmentName" class="form-label">Department name:</label>
+						<input class="form-control"
+							   id="field_departmentName"
+							   type="text" value="CEO"
+							   th:field="*{departmentName}" />
+					</div>
+					<div class="mb-3 me-3">
+						<label for="exampleFormControlTextarea1" class="form-label">Description:</label>
+						<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+					</div>
+
+					<button type="submit" class="btn btn-secondary me-2">Cancel</button>
+					<button type="submit" class="btn btn-primary" >Save</button>
+
+
+				</form>
+			</div>
+
+		</section>
+
+		<footer>
+			<hr/>
+			<p class="text-center">&copy; 2021</p>
+		</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+			integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+			crossorigin="anonymous">
+	</script>
+		
+	</body>
+</html>
