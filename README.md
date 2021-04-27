@@ -1,4 +1,4 @@
-#Project "Human Resources"  
+Project "Human Resources"  
 Author: Aleh Yaskovich  
 Contact: Aleh_Yaskovich@epam.com 
 ***
