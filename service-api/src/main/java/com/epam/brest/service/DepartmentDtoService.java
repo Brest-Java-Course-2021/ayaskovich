@@ -6,5 +6,8 @@ import java.util.List;
 
 public interface DepartmentDtoService {
 
+    /**
+     * Returns all Departments with average salaries
+     */
     List<DepartmentDto> findAllWithAvgSalary();
 }

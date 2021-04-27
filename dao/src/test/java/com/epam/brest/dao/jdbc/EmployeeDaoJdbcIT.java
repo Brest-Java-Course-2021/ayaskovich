@@ -2,18 +2,24 @@ package com.epam.brest.dao.jdbc;
 
 import com.epam.brest.dao.EmployeeDao;
 import com.epam.brest.model.Employee;
+import com.epam.brest.testdb.SpringJdbcConfig;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = {"classpath*:test-db.xml", "classpath*:test-dao.xml", "classpath*:dao.xml"})
+@DataJdbcTest
+@Import({EmployeeDaoJdbc.class})
+@ContextConfiguration(classes = SpringJdbcConfig.class)
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class EmployeeDaoJdbcIT {
 
     @Autowired
@@ -24,6 +30,24 @@ class EmployeeDaoJdbcIT {
         List<Employee> employeeList = employeeDao.findAll();
         Assertions.assertNotNull(employeeList);
         Assertions.assertTrue(employeeList.size() > 0);
+    }
+
+    @Test
+    public void findByDateTest() {
+        List<Employee> employeeList = employeeDao.findAll();
+        Assertions.assertNotNull(employeeList);
+
+        Employee updaateEmployee = employeeList.get(0);
+        Date updateEmployeeHared = Date.valueOf("2005-01-12");
+        updaateEmployee.setHared(updateEmployeeHared);
+        Integer result = employeeDao.update(updaateEmployee);
+
+        List<Employee> newEmployeeList = employeeDao.findAll();
+        Assertions.assertEquals(updateEmployeeHared, newEmployeeList.get(0).getHared());
+
+        List<Employee> employeesByDate = employeeDao.findAByDate(Date.valueOf("2000-01-01"), Date.valueOf("2010-01-01"));
+        Assertions.assertNotNull(employeesByDate);
+        Assertions.assertTrue(employeesByDate.size() > 0);
     }
 
     @Test
@@ -45,7 +69,13 @@ class EmployeeDaoJdbcIT {
         Assertions.assertNotNull(employeeList);
         Assertions.assertTrue(employeeList.size() > 0);
 
-        Employee employee = new Employee("FirstName", "LastName", "first@mail.com", 100.0, 1);
+        Employee employee = new Employee(
+                "FirstName",
+                "LastName",
+                "first@mail.com",
+                100.0,
+                1,
+                new Date(Calendar.getInstance().getTime().getTime()));
         Integer result = employeeDao.create(employee);
 
         List<Employee> newEmployeeList = employeeDao.findAll();
@@ -60,10 +90,12 @@ class EmployeeDaoJdbcIT {
 
         Employee employee = employeeList.get(0);
         employee.setEmail("TEST_EMAIL");
+        employee.setHared(new Date(2021, 4, 24));
         employeeDao.update(employee);
 
         Optional<Employee> newEmployee = employeeDao.findById(employee.getEmployeeId());
         Assertions.assertEquals("TEST_EMAIL", newEmployee.get().getEmail());
+        Assertions.assertEquals(new Date(2021, 4, 24), newEmployee.get().getHared());
     }
 
     @Test

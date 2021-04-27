@@ -20,6 +20,9 @@ public class DepartmentDtoServiceImpl implements DepartmentDtoService {
         this.departmentDtoDao = departmentDtoDao;
     }
 
+    /**
+     * Returns all Departments with average salaries
+     */
     @Override
     public List<DepartmentDto> findAllWithAvgSalary() {
         return departmentDtoDao.findAllWithAvgSalary();

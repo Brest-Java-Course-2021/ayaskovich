@@ -21,31 +21,49 @@ public class DepartmentServiceImpl implements DepartmentService {
         this.departmentDao = departmentDao;
     }
 
+    /**
+     * Returns all Departments
+     */
     @Override
     public List<Department> findAll() {
         return departmentDao.findAll();
     }
 
+    /**
+     * Return Department by ID
+     */
     @Override
     public Optional<Department> findById(Integer departmentId) {
         return departmentDao.findById(departmentId);
     }
 
+    /**
+     * Create new Department
+     */
     @Override
     public Integer create(Department department) {
         return departmentDao.create(department);
     }
 
+    /**
+     * Edit Department
+     */
     @Override
     public Integer update(Department department) {
         return departmentDao.update(department);
     }
 
+    /**
+     * Delete Department
+     */
     @Override
     public Integer delete(Integer departmentId) {
         return departmentDao.delete(departmentId);
     }
 
+    /**
+     * Count Departments
+     */
     @Override
     public Integer count() {
         return departmentDao.count();

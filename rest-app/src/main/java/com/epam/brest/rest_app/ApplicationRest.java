@@ -16,4 +16,6 @@ public class ApplicationRest extends SpringBootServletInitializer {
         new SpringApplicationBuilder(ApplicationRest.class).web(WebApplicationType.SERVLET).run(args);
     }
 
+
+
 }

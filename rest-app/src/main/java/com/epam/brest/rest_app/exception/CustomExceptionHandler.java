@@ -9,9 +9,15 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(DepartmentNotFoundException.class)
+    @ExceptionHandler({DepartmentNotFoundException.class})
     public ResponseEntity<ErrorResponse> handleDepartmentNotFound(DepartmentNotFoundException e) {
         ErrorResponse error = new ErrorResponse("Department.not_found");
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler({EmployeeNotFoundException.class})
+    public ResponseEntity<ErrorResponse> handleEmployeeNotFound(EmployeeNotFoundException e) {
+        ErrorResponse error = new ErrorResponse("Employee.not_found");
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
