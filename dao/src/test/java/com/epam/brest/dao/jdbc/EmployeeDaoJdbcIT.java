@@ -39,11 +39,11 @@ class EmployeeDaoJdbcIT {
 
         Employee updaateEmployee = employeeList.get(0);
         Date updateEmployeeHared = Date.valueOf("2005-01-12");
-        updaateEmployee.setHared(updateEmployeeHared);
+        updaateEmployee.setHired(updateEmployeeHared);
         Integer result = employeeDao.update(updaateEmployee);
 
         List<Employee> newEmployeeList = employeeDao.findAll();
-        Assertions.assertEquals(updateEmployeeHared, newEmployeeList.get(0).getHared());
+        Assertions.assertEquals(updateEmployeeHared, newEmployeeList.get(0).getHired());
 
         List<Employee> employeesByDate = employeeDao.findAByDate(Date.valueOf("2000-01-01"), Date.valueOf("2010-01-01"));
         Assertions.assertNotNull(employeesByDate);
@@ -90,12 +90,12 @@ class EmployeeDaoJdbcIT {
 
         Employee employee = employeeList.get(0);
         employee.setEmail("TEST_EMAIL");
-        employee.setHared(new Date(2021, 4, 24));
+        employee.setHired(new Date(2021, 4, 24));
         employeeDao.update(employee);
 
         Optional<Employee> newEmployee = employeeDao.findById(employee.getEmployeeId());
         Assertions.assertEquals("TEST_EMAIL", newEmployee.get().getEmail());
-        Assertions.assertEquals(new Date(2021, 4, 24), newEmployee.get().getHared());
+        Assertions.assertEquals(new Date(2021, 4, 24), newEmployee.get().getHired());
     }
 
     @Test

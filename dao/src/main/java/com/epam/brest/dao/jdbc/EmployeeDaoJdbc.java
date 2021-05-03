@@ -28,15 +28,15 @@ public class EmployeeDaoJdbc implements EmployeeDao {
             "SELECT * FROM EMPLOYEE AS E ORDER BY E.EMPLOYEE_ID";
     private String findByDateSql =
             "SELECT * FROM EMPLOYEE AS E " +
-                    "WHERE E.HARED >= :FIRST_DATE AND E.HARED <= :SECOND_DATE ORDER BY E.HARED";
+                    "WHERE E.HIRED >= :FIRST_DATE AND E.HIRED <= :SECOND_DATE ORDER BY E.HIRED";
     private String findByIdSql =
             "SELECT * FROM EMPLOYEE AS E WHERE E.EMPLOYEE_ID = :EMPLOYEE_ID";
     private String createSql =
-            "INSERT INTO EMPLOYEE (FIRSTNAME, LASTNAME, EMAIL, SALARY, DEPARTMENT_ID, HARED) " +
-                    "VALUES (:FIRSTNAME, :LASTNAME, :EMAIL, :SALARY, :DEPARTMENT_ID, :HARED)";
+            "INSERT INTO EMPLOYEE (FIRSTNAME, LASTNAME, EMAIL, SALARY, DEPARTMENT_ID, HIRED) " +
+                    "VALUES (:FIRSTNAME, :LASTNAME, :EMAIL, :SALARY, :DEPARTMENT_ID, :HIRED)";
     private String updateSql = "UPDATE EMPLOYEE SET " +
                     "FIRSTNAME = :FIRSTNAME, LASTNAME = :LASTNAME, EMAIL = :EMAIL, SALARY = :SALARY, " +
-            "DEPARTMENT_ID = :DEPARTMENT_ID, HARED = :HARED " +
+            "DEPARTMENT_ID = :DEPARTMENT_ID, HIRED = :HIRED " +
                         "WHERE EMPLOYEE_ID = :EMPLOYEE_ID";
     private String deleteSql =
             "DELETE FROM EMPLOYEE WHERE EMPLOYEE_ID = :EMPLOYEE_ID";
@@ -101,7 +101,7 @@ public class EmployeeDaoJdbc implements EmployeeDao {
         sqlParameter.put("EMAIL", employee.getEmail());
         sqlParameter.put("SALARY", employee.getSalary());
         sqlParameter.put("DEPARTMENT_ID", employee.getDepartmentId());
-        sqlParameter.put("HARED", new Date(Calendar.getInstance().getTime().getTime()));
+        sqlParameter.put("HIRED", new Date(Calendar.getInstance().getTime().getTime()));
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource(sqlParameter);
         namedParameterJdbcTemplate.update(createSql, sqlParameterSource, keyHolder);
         return Objects.requireNonNull(keyHolder.getKey()).intValue();
@@ -129,7 +129,7 @@ public class EmployeeDaoJdbc implements EmployeeDao {
         sqlParameter.put("EMAIL", employee.getEmail());
         sqlParameter.put("SALARY", employee.getSalary());
         sqlParameter.put("DEPARTMENT_ID", employee.getDepartmentId());
-        sqlParameter.put("HARED", employee.getHared() );
+        sqlParameter.put("HIRED", employee.getHired() );
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource(sqlParameter);
         return namedParameterJdbcTemplate.update(updateSql, sqlParameterSource);
     }
@@ -155,7 +155,7 @@ public class EmployeeDaoJdbc implements EmployeeDao {
             employee.setEmail(resultSet.getString("EMAIL"));
             employee.setSalary(resultSet.getDouble("SALARY"));
             employee.setDepartmentId(resultSet.getInt("DEPARTMENT_ID"));
-            employee.setHared(resultSet.getDate("HARED"));
+            employee.setHired(resultSet.getDate("HIRED"));
             return employee;
         }
     }

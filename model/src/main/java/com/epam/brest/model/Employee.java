@@ -12,17 +12,17 @@ public class Employee {
     private String email;
     private Double salary;
     private Integer departmentId;
-    private Date hared;
+    private Date hired;
 
     public Employee() {}
 
-    public Employee(String firstName, String lastName, String email, Double salary, Integer departmentId, Date hared) {
+    public Employee(String firstName, String lastName, String email, Double salary, Integer departmentId, Date hired) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.salary = salary;
         this.departmentId = departmentId;
-        this.hared = hared;
+        this.hired = hired;
     }
 
     public Integer getEmployeeId() {
@@ -73,12 +73,12 @@ public class Employee {
         this.departmentId = departmentId;
     }
 
-    public Date getHared() {
-        return hared;
+    public Date getHired() {
+        return hired;
     }
 
-    public void setHared(Date hared) {
-        this.hared = hared;
+    public void setHired(Date hired) {
+        this.hired = hired;
     }
 
     @Override
@@ -86,12 +86,12 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(employeeId, employee.employeeId) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(email, employee.email) && Objects.equals(salary, employee.salary) && Objects.equals(departmentId, employee.departmentId) && Objects.equals(hared, employee.hared);
+        return Objects.equals(employeeId, employee.employeeId) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(email, employee.email) && Objects.equals(salary, employee.salary) && Objects.equals(departmentId, employee.departmentId) && Objects.equals(hired, employee.hired);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeId, firstName, lastName, email, salary, departmentId, hared);
+        return Objects.hash(employeeId, firstName, lastName, email, salary, departmentId, hired);
     }
 
     @Override
@@ -103,7 +103,7 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", salary=" + salary +
                 ", departmentId=" + departmentId +
-                ", hared=" + hared +
+                ", hired=" + hired +
                 '}';
     }
 }
