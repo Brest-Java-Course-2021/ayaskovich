@@ -5,20 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="542a7dd3-1eb6-4972-9b94-d60bd6de860f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dao-api/src/main/java/com/epam/brest/dao/EmployeeDtoDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dao/src/main/java/com/epam/brest/dao/jdbc/EmployeeDtoDaoJdbc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/epam/brest/model/dto/EmployeeDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/epam/brest/service/EmployeeDtoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-rest/src/main/java/com/epam/brest/service/rest/EmployeeDtoServiceRest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/epam/brest/service/impl/EmployeeDtoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/com/epam/brest/service/impl/EmployeeDtoServiceImplIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-app/src/main/java/com/epam/brest/rest_app/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-app/src/main/java/com/epam/brest/rest_app/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-db/src/main/resources/init-test-db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/test-db/src/main/resources/init-test-db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/main/java/com/epam/brest/web_app/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/epam/brest/web_app/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/main/java/com/epam/brest/web_app/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/epam/brest/web_app/config/ApplicationConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/templates/employees.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/templates/employees.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-grid.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-reboot.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-utilities.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-utilities.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-utilities.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-utilities.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-utilities.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/static/css/bootstrap.rtl.min.css.map" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +69,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web-app/src/main/resources/static/css" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
