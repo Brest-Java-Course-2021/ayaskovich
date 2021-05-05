@@ -2,7 +2,9 @@ package com.epam.brest.web_app;
 
 import com.epam.brest.model.Dates;
 import com.epam.brest.model.Employee;
+import com.epam.brest.model.dto.EmployeeDto;
 import com.epam.brest.service.DepartmentService;
+import com.epam.brest.service.EmployeeDtoService;
 import com.epam.brest.service.EmployeeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,11 +25,13 @@ public class EmployeeController {
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
 
     private final EmployeeService employeeService;
+    private final EmployeeDtoService employeeDtoService;
     private final DepartmentService departmentService;
 
     @Autowired
-    public EmployeeController(EmployeeService employeeService, DepartmentService departmentService) {
+    public EmployeeController(EmployeeService employeeService, EmployeeDtoService employeeDtoService, DepartmentService departmentService) {
         this.employeeService = employeeService;
+        this.employeeDtoService = employeeDtoService;
         this.departmentService = departmentService;
     }
 
@@ -39,7 +43,7 @@ public class EmployeeController {
         LOGGER.debug("showAllEmployees()");
         Dates dates = new Dates();
         model.addAttribute(dates);
-        model.addAttribute("employees", employeeService.findAll());
+        model.addAttribute("employees", employeeDtoService.findAll());
         return "employees";
     }
 
@@ -51,7 +55,7 @@ public class EmployeeController {
         LOGGER.debug("showEmployeesByDate({},{})", dates, model);
         Date firstDate = Date.valueOf(dates.getFirstDate());
         Date secondDate = Date.valueOf(dates.getSecondDate());
-        List<Employee> employees = employeeService.findByDate(firstDate, secondDate);
+        List<EmployeeDto> employees = employeeDtoService.findByDate(firstDate, secondDate);
         model.addAttribute("employees", employees);
         return "employees";
     }

@@ -5,19 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="542a7dd3-1eb6-4972-9b94-d60bd6de860f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/resources/templates/error.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/resources/templates/error/400.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/resources/templates/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/resources/templates/error/500.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao-api/src/main/java/com/epam/brest/dao/EmployeeDtoDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/src/main/java/com/epam/brest/dao/jdbc/EmployeeDtoDaoJdbc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/epam/brest/model/dto/EmployeeDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/epam/brest/service/EmployeeDtoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-rest/src/main/java/com/epam/brest/service/rest/EmployeeDtoServiceRest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/epam/brest/service/impl/EmployeeDtoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/com/epam/brest/service/impl/EmployeeDtoServiceImplIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/templates/departments.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/templates/departments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-app/target/classes/templates/departments.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/target/classes/templates/departments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-app/src/main/java/com/epam/brest/rest_app/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-app/src/main/java/com/epam/brest/rest_app/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-db/src/main/resources/init-test-db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/test-db/src/main/resources/init-test-db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/java/com/epam/brest/web_app/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/epam/brest/web_app/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/java/com/epam/brest/web_app/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/epam/brest/web_app/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/resources/templates/employees.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/templates/employees.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,7 +54,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web-app/src/main/resources/templates/error" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -50,6 +64,50 @@
       <recent name="$PROJECT_DIR$/web-app/src/main/resources/templates/error" />
       <recent name="$PROJECT_DIR$/web-app/src/main/resources/templates" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.epam.brest.service.impl" />
+      <recent name="com.epam.brest.model.dto" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.EmployeeDtoServiceImplIT.findByDateTest">
+    <configuration name="EmployeeDtoServiceImplIT.findAllTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.epam.brest.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.epam.brest.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.brest.service.impl.EmployeeDtoServiceImplIT" />
+      <option name="METHOD_NAME" value="findAllTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeDtoServiceImplIT.findByDateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.epam.brest.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.epam.brest.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.brest.service.impl.EmployeeDtoServiceImplIT" />
+      <option name="METHOD_NAME" value="findByDateTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.EmployeeDtoServiceImplIT.findByDateTest" />
+        <item itemvalue="JUnit.EmployeeDtoServiceImplIT.findAllTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

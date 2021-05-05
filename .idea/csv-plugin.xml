@@ -10,6 +10,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/model/src/main/java/com/epam/brest/model/dto/EmployeeDto.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/service/src/test/java/com/epam/brest/service/impl/EmployeeDtoServiceImplIT.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

@@ -2,9 +2,11 @@ package com.epam.brest.web_app.config;
 
 import com.epam.brest.service.DepartmentDtoService;
 import com.epam.brest.service.DepartmentService;
+import com.epam.brest.service.EmployeeDtoService;
 import com.epam.brest.service.EmployeeService;
 import com.epam.brest.service.rest.DepartmentDtoServiceRest;
 import com.epam.brest.service.rest.DepartmentServiceRest;
+import com.epam.brest.service.rest.EmployeeDtoServiceRest;
 import com.epam.brest.service.rest.EmployeeServiceRest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -45,6 +47,12 @@ public class ApplicationConfig {
     EmployeeService employeeService() {
         String url = String.format("%s://%s:%d/employees", protocol, host, port);
         return new EmployeeServiceRest(url, restTemplate());
+    };
+
+    @Bean
+    EmployeeDtoService employeeDtoService() {
+        String url = String.format("%s://%s:%d/employees", protocol, host, port);
+        return new EmployeeDtoServiceRest(url, restTemplate());
     };
 
 }

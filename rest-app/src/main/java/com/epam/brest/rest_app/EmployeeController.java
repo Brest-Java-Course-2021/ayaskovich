@@ -1,6 +1,8 @@
 package com.epam.brest.rest_app;
 
 import com.epam.brest.model.Employee;
+import com.epam.brest.model.dto.EmployeeDto;
+import com.epam.brest.service.EmployeeDtoService;
 import com.epam.brest.service.EmployeeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,25 +21,27 @@ public class EmployeeController {
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
 
     private final EmployeeService employeeService;
+    private final EmployeeDtoService employeeDtoService;
 
     @Autowired
-    public EmployeeController(EmployeeService employeeService) {
+    public EmployeeController(EmployeeService employeeService, EmployeeDtoService employeeDtoService) {
         this.employeeService = employeeService;
+        this.employeeDtoService = employeeDtoService;
     }
 
     @GetMapping(value = "/employees")
-    public Collection<Employee> employees() {
+    public Collection<EmployeeDto> employees() {
         LOGGER.debug("employees()");
-        return employeeService.findAll();
+        return employeeDtoService.findAll();
     }
 
     @GetMapping(value = "/employees-by-date/{dates}") // 2018-01-01_2020-05-12
-    public Collection<Employee> employeesByDate(@PathVariable String dates) {
+    public Collection<EmployeeDto> employeesByDate(@PathVariable String dates) {
         LOGGER.debug("employeesByDate({})", dates);
         String[] dateStringArray = dates.split("_");
         Date firstDate = Date.valueOf(dateStringArray[0]);
         Date secondDate = Date.valueOf(dateStringArray[1]);
-        return employeeService.findByDate(firstDate, secondDate);
+        return employeeDtoService.findByDate(firstDate, secondDate);
     }
 
     @GetMapping(value = "/employees/{id}")
