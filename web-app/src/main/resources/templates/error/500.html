@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Error page</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+<body>
+<div style="padding:10px 15px; margin: 20px auto; text-align:center">
+    <h1>ERROR 500. Internal server error!</h1>
+    <h5 class="mb-4">You may have one of the following problems:<br>
+        - the server is unavailable;<br>
+        - you are requesting data about a non-existent Department or Employee;<br>
+        - you are trying to delete the Department that contains employees;<br>
+        - something else.</h5>
+    <a href="/departments" class="mb-5 btn btn-primary btn-lg">Go Home</a>
+</div>
+</body>
+</html>
